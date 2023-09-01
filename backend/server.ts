@@ -1,15 +1,13 @@
-import dotenv from "dotenv";
-dotenv.config();
-
+import db from './db';
+import { initModels } from './models';
 import express from "express";
 import cors from "cors";
 import userRouter from "./routers/user.router";
 
-import { dbco } from "./configs/database.config";
-import { error, log } from "console";
-dbco();
-
 const app = express();
+const port = 3000;
+initModels(db);
+
 app.use(express.json());
 app.use(cors({
     credentials: true,
@@ -18,7 +16,6 @@ app.use(cors({
 
 app.use("/api", userRouter);
 
-const port: number = 9999;
 app.listen(port, () => {
-    try {log("Website served on http://localhost:" + port)} catch (err) {error("Server error: ", err)}
+    try {console.log("Website served on http://localhost:" + port)} catch (err) {console.error("Server error: ", err)}
 });

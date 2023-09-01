@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { User } from 'src/app/models/User.model';
+import { User } from 'src/app/models/user.model';
 import { UserService } from 'src/app/services/user.service';
 
 @Component({
@@ -10,18 +10,18 @@ import { UserService } from 'src/app/services/user.service';
 export class UsersComponent implements OnInit {
   users!: User[];
 
-  constructor(private userService: UserService) {}
+  constructor(private userService: UserService) { }
 
   ngOnInit() {
-      this.userService.getAll().subscribe(users => this.users = users);
+    this.userService.getAll().subscribe(users => this.users = users);
   }
 
-  filterResults(text: string) {
+/*   filterResults(text: string) {
     if (!text) {
       this.users;
     }
     this.users = this.users.filter(
       element => element.name.toLowerCase().includes(text.toLowerCase()) || element.firstname.toLowerCase().includes(text.toLowerCase()) || element.phone.toLowerCase().includes(text.toLowerCase()) || element.email.toLowerCase().includes(text.toLowerCase()) || element.address.toLowerCase().includes(text.toLowerCase()) || element.postalZip.toLowerCase().includes(text.toLowerCase()) || element.city.toLowerCase().includes(text.toLowerCase())
     );
-  }
+  } */
 }

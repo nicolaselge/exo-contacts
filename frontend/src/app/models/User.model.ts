@@ -1,6 +1,6 @@
 export class User {
     id!: number;
-    name!: string;
+    lastname!: string;
     firstname!: string;
     phone!: string;
     email!: string;
@@ -10,5 +10,7 @@ export class User {
     company!: string;
     password!: string;
     token!: string;
-    isAdmin?: boolean;
+    isAdmin?: number;
+    createdAt!: Date;
+    updatedAt!: Date;
 }
